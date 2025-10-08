@@ -1,5 +1,6 @@
 import HomePage from './pages/HomePage'
 import CheckoutPage from './pages/CheckoutPage'
+import OrdersPage from './pages/OrdersPage'
 import './App.css'
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <>
       <HomePage />
       <CheckoutPage />
+      <OrdersPage />
     </>
   )
 }
