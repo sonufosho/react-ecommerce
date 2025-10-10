@@ -112,6 +112,10 @@
   padding-right: 13px;
 }
 
+.header .orders-link.active {
+  background-color: rgba(8, 100, 45);
+}
+
 .header .orders-text {
   display: block;
   font-size: 15px;
