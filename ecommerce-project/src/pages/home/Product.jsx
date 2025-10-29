@@ -1,6 +1,16 @@
+import axios from 'axios';
 import { formatMoney } from "../../utils/money";
 
-export function Product({ product }) {
+export function Product({ product, loadCart }) {
+  const addToCart = async () => {
+    await axios.post('/api/cart-items', {
+      productId: product.id,
+      quantity: 1
+    });
+
+    loadCart();
+  }
+
   return (
     <div key={product.id} className="product-container">
       <div className="product-image-container">
@@ -46,7 +56,8 @@ export function Product({ product }) {
         Added
       </div>
 
-      <button className="add-to-cart-button button-primary">
+      <button className="add-to-cart-button button-primary"
+        onClick={addToCart}>
         Add to Cart
       </button>
     </div>
