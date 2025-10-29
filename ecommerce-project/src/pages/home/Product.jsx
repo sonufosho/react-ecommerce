@@ -1,14 +1,22 @@
+import { useState } from 'react';
 import axios from 'axios';
 import { formatMoney } from "../../utils/money";
 
 export function Product({ product, loadCart }) {
+  const [quantity, setQuantity] = useState(1);
+
   const addToCart = async () => {
     await axios.post('/api/cart-items', {
       productId: product.id,
-      quantity: 1
+      quantity: quantity
     });
 
     loadCart();
+  }
+
+  const selectQuantity = (event) => {
+    const quantitySelected = Number(event.target.value);
+    setQuantity(quantitySelected);
   }
 
   return (
@@ -35,7 +43,7 @@ export function Product({ product, loadCart }) {
       </div>
 
       <div className="product-quantity-container">
-        <select>
+        <select value={quantity} onChange={selectQuantity}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
