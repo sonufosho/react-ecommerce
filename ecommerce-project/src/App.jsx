@@ -9,7 +9,7 @@ import NotFoundPage from './pages/NotFoundPage'
 import './App.css'
 
 window.axios = axios;
-// in the console axios.post('/api/reset) to reset the data to some default values.
+// in the console axios.post('/api/reset') to reset the data to some default values.
 
 function App() {
   const [cart, setCart] = useState([]);
